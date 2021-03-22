@@ -1,12 +1,14 @@
 package com.example.daggerhiltsample.di
 
+import com.example.daggerhiltsample.BuildConfig
 import com.example.daggerhiltsample.service.ApiHelper
 import com.example.daggerhiltsample.service.ApiHelperImpl
 import com.example.daggerhiltsample.service.RetrofitService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +16,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 class NetworkModule {
     @Provides
     fun provideAppUrl() = BuildConfig.SERVICE_URL
